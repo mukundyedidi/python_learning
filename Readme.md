@@ -42,3 +42,18 @@ Follow the url https://www.freecodecamp.org/news/how-to-install-python-in-window
 
 ![](https://www.freecodecamp.org/news/content/images/2022/02/08.png)
 
+- max_path
+
+If you get this type of prompt to disable the path length limit, then simply click on that box. It disables the path length limit by removing the limitation on the MAX_PATH variable.
+
+This change will not break anything, or make any negative changes. It will just allow Python to use long path names. It is recommended to disable the path length limit.
+
+![](https://i.imgur.com/5J1Y1J8.png)
+
+- Successfully installed
+
+```
+C:\Users\mukun>python --version
+Python 3.10.4
+```
+
