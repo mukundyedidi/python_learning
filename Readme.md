@@ -161,4 +161,112 @@ Quit the server with CTRL-BREAK.
 ![](https://i.imgur.com/OcoVXpI.png)
 
 
+# EDITOR vscode
 
+open the project in vscode editor
+
+```
+C:\Users\mukun\Desktop\django>code -n .
+```
+
+![](https://i.imgur.com/6zTfGyU.png)
+
+by running 
+
+```
+django-admin startproject testing
+```
+
+We see the below files getting created
+
+![](https://i.imgur.com/LjMKuMb.png)
+
+
+also `manage.py` is used in `python manage.py runserver` command
+
+
+# create a new application called basic
+
+```
+C:\Users\mukun\Desktop\django>.\venv\Scripts\activate.bat
+
+(venv) C:\Users\mukun\Desktop\django>cd testing
+
+(venv) C:\Users\mukun\Desktop\django\testing>django-admin startapp basic
+
+(venv) C:\Users\mukun\Desktop\django\testing>
+```
+
+![](https://i.imgur.com/s0kcZJY.png)
+
+It will create a new folder called basic
+
+# add basic inside INSTALLED_APPS 
+
+`testing > settings.py`
+
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'basic.apps.BasicConfig',
+]
+```
+
+![](https://i.imgur.com/TlGiT4W.png)
+
+
+# How to create a url
+
+## create a template/html file
+
+create
+
+`basic > templates > basic > basic.html `
+
+![](https://i.imgur.com/z8mtcCG.png)
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Basic Page</h1>
+</body>
+</html>
+```
+
+
+## create a view
+
+![](https://i.imgur.com/Y8RHotp.png)
+
+```
+# import Http Response from django
+from django.shortcuts import render
+  
+# create a function
+def basic_view(request):
+    return render(request, "basic/basic.html")
+```
+
+## create a url
+
+![](https://i.imgur.com/CNJWAIq.png)
+
+```
+from django.contrib import admin
+from django.urls import path
+from basic.views import basic_view
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('basic/', basic_view),
+]
+```
